@@ -24,7 +24,15 @@ mongoose.connect(process.env.DATABASE_URL, {
         console.error("Error connecting to MongoDB:", error);
     });
 
-app.use(cors());
+app.use(cors(
+    {
+        origin:["search-projects.vercel.app"],
+
+        methods: ["POST","GET"],
+        credentials: true
+));
+
+
 var stuRoute = require("./routes/students");
 
 app.use(bodyParser.urlencoded({ extended: true }));
