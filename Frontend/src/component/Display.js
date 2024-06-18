@@ -6,7 +6,7 @@ const Display=()=>{
     const [mydata, setMydata]= useState([]);
 
     const loadData=()=>{
-        let api="http://localhost:8000/student/datadisplay";
+        let api="http://search-projects-52k3.vercel.app/student/datadisplay";
         axios.get(api).then((res)=>{
             setMydata(res.data);
         }).catch((err)=>{
