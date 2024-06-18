@@ -1,12 +1,15 @@
 import React, { useState } from "react";
 import axios from "axios";
 
+// Set axios defaults outside the component function
+axios.defaults.withCredentials = true;
+
 const Search = () => {
   const [rollno, setRollno] = useState("");
   const [mydata, setMydata] = useState([]);
   const [showTable, setShowTable] = useState(false);
   const [error, setError] = useState("");
-    axios.defaults.withCredentials = true;
+
   const submitHandle = () => {
     // Basic validation
     if (!rollno.trim()) {
@@ -16,7 +19,7 @@ const Search = () => {
       setError("");
     }
 
-    let url = "http://search-projects-52k3.vercel.app/student/stusearch";
+    let url = "https://search-projects-52k3.vercel.app/student/stusearch";
     axios
       .post(url, { rollno: rollno })
       .then((res) => {
@@ -55,9 +58,9 @@ const Search = () => {
       <button onClick={submitHandle}>Search</button>
       <br /> <br />
       {showTable && mydata.length > 0 && ( // Show the table only if there are records
-        <table align="center" width="80%" bgcolor="pink">
+        <table align="center" width="80%" style={{ backgroundColor: "pink" }}>
           <thead>
-            <tr bgcolor="orange">
+            <tr style={{ backgroundColor: "orange" }}>
               <td>Rollno</td>
               <td>Name</td>
               <td>City</td>
