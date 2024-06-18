@@ -24,14 +24,13 @@ mongoose.connect(process.env.DATABASE_URL, {
         console.error("Error connecting to MongoDB:", error);
     });
 
-app.use(cors(
-    {
-        origin:["search-projects.vercel.app"],
+const corsOptions = {
+    origin: 'https://search-projects.vercel.app', // Allow this origin
+    methods: ['GET', 'POST'], // Allow these HTTP methods
+    credentials: true, 
+};
 
-        methods: ["POST","GET"],
-        credentials: true
-));
-
+app.use(cors(corsOptions));
 
 var stuRoute = require("./routes/students");
 
