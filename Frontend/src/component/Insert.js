@@ -51,23 +51,16 @@ const Insert = () => {
 
         // If no errors, submit data
         const url = "https://search-projects-52k3.vercel.app/student/datasave";
-        axios.post(url, input)
-            .then((res) => {
-                alert("Data submitted successfully");
-                setInput({
-                    rollno: "",
-                    name: "",
-                    city: "",
-                    fees: ""
-                }); // Clear input fields
-                setErrors({}); // Clear errors
-            })
-            .catch((error) => {
-                console.error("Error:", error);
-                alert("An error occurred while submitting data");
-            });
-    }
-
+axios.post(url, input)
+    .then((res) => {
+        alert("Data submitted successfully");
+        setInput({}); // Clear input fields
+        setErrors({}); // Clear errors
+    })
+    .catch((error) => {
+        console.error("Error:", error);
+        alert("An error occurred while submitting data");
+    });
     return (
         <div className="cnter">
             <h1>Welcome to our insert page</h1>
