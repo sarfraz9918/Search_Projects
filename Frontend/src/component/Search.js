@@ -6,7 +6,7 @@ const Search = () => {
   const [mydata, setMydata] = useState([]);
   const [showTable, setShowTable] = useState(false);
   const [error, setError] = useState("");
-
+    axios.defaults.withCredentials = true;
   const submitHandle = () => {
     // Basic validation
     if (!rollno.trim()) {
