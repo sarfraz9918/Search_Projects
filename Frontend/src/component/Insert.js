@@ -42,7 +42,7 @@ const Insert = () => {
         }
 
         // If no errors, submit data
-        let url = "http://localhost:8000/student/datasave";
+        let url = "search-projects-52k3.vercel.app/student/datasave";
         axios.post(url, input)
             .then((res) => {
                 alert("Data submitted successfully");
