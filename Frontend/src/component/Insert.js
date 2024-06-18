@@ -4,6 +4,7 @@ import axios from "axios";
 const Insert = () => {
     const [input, setInput] = useState({});
     const [errors, setErrors] = useState({});
+    axios.defaults.withCredentials = true;
 
     const handleInput = (e) => {
         let name = e.target.name;
