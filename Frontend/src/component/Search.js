@@ -16,7 +16,7 @@ const Search = () => {
       setError("");
     }
 
-    let url = "http://localhost:8000/student/stusearch";
+    let url = "http://search-projects-52k3.vercel.app/student/stusearch";
     axios
       .post(url, { rollno: rollno })
       .then((res) => {
